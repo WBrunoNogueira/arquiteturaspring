@@ -14,19 +14,17 @@ public class Application {
 
         SpringApplicationBuilder builder = new SpringApplicationBuilder(Application.class);
 
+
+        builder.bannerMode(Banner.Mode.OFF); // off banner spring
+        builder.profiles("produção");
+
         builder.run(args);
 
         //contexto da applicação já iniciado
-
-        builder.bannerMode(Banner.Mode.OFF); // off banner spring
         ConfigurableApplicationContext applicationContext = builder.context();
      //   var produtoRepository = applicationContext.getBean("produtoRepository");
 
         //builder.properties("spring.datasource.url=jdbc://"); //inserir properties logo na inicialização, ao invez do yaml ou .properties
-
-        builder.profiles("produção");
-
-    builder.profiles("produção");
 
         ConfigurableEnvironment environment = applicationContext.getEnvironment();
         String applicationname = environment.getProperty("spring.application.name");
