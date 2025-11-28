@@ -6,5 +6,7 @@ import org.springframework.stereotype.Repository;
 // CAMADA REPOSITORY
 @Repository
 public interface TodoRepository extends JpaRepository<TodoEntity, Integer> {
+    boolean existsByDescricao(String descricao);
+
 
 }
